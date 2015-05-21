@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring-Common.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+	<bean id="Customer" class="pl.agh.edu.pizzeriaSimulator.Customer">
+		<constructor-arg value="Pizza Lover"/>
+		<property name="order" ref="Email" />	
+	</bean>
+ 
+	<bean id="Email" class="pl.agh.edu.pizzeriaSimulator.order.impl.EmailOrder">
+		<property name="pizzeria" ref="MexicoPizza"/>
+	</bean>
+ 
+	<bean id="MexicoPizza" class="pl.agh.edu.pizzeriaSimulator.pizzeria.impl.MexicoPizza">
+		<property name="delivery" ref="HomeDelivery"/>
+		<property name="pizzaType" value="Capricciosa Chili"/>
+	</bean>	
+	
+	<bean id="HomeDelivery" class="pl.agh.edu.pizzeriaSimulator.delivery.impl.HomeDelivery" />
+ 
+</beans>
